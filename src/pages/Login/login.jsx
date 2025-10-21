@@ -1,11 +1,18 @@
+
 import { useState } from 'react';
-import './login.css'
+import { useNavigate } from 'react-router-dom';
+import './style.css';
 import { IoPerson } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 
 export const Login =  () =>   { 
     const [action, setAction] = useState("Sign Up");
+    const navigate = useNavigate();
+
+    const handleLogin = () => {
+        navigate('/home');
+    };
     return ( 
     <div className='container'>
         <div className='header'>
@@ -32,7 +39,7 @@ export const Login =  () =>   {
                         )}
                         <div className="submit-conteiner">
                             <div className={action === 'Login' ? 'submit gray' : 'submit'} onClick={() => {setAction('Sign Up')}}>Sign Up</div>
-                            <div className={action === 'Sign Up' ? 'submit gray' : 'submit'} onClick={() => {setAction('Login')}}>Login</div>
+                            <div className={action === 'Sign Up' ? 'submit gray' : 'submit'} onClick={handleLogin}>Login</div>
                         </div>
         </div>
     </div>
